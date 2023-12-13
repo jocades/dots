@@ -6,7 +6,7 @@ fi
 # Path
 export EDITOR='nvim'
 export VISUAL='nvim'
-export TERM='screen-256color'
+export TERM='xterm-256color'
 export PYENV_ROOT="$HOME/.pyenv"
 
 # Shell scripts
