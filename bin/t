@@ -1,0 +1,31 @@
+#!/bin/bash
+
+Z_RESULT=$(zoxide query "$1")
+
+if [ -z "$Z_RESULT" ]; then
+    exit 0
+fi
+
+echo "$Z_RESULT"
+
+DIR=$(basename "$Z_RESULT")
+
+SESSION=$(tmux ls | grep "$DIR" | cut -d: -f1)
+
+if [ -z "$TMUX" ]; then
+    if [ -z "$SESSION" ]; then
+        # create new session with the dir name as the session name and the dir as the cwd
+        tmux new-session -s "$DIR" -c "$Z_RESULT"
+    else
+        tmux attach -t "$SESSION"
+    fi
+
+else # inside tmux
+    if [ -z "$SESSION" ]; then
+        # create new session with the dir name as the session name and the dir as the cwd
+        tmux new-session -d -s "$DIR" -c "$Z_RESULT"
+        tmux switch-client -t "$DIR"
+    else
+        tmux switch-client -t "$SESSION"
+    fi
+fi
