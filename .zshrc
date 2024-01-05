@@ -30,7 +30,6 @@ alias la='lsd -a --group-dirs first'
 alias lla='lsd -la --group-dirs first'
 alias grep='grep --color=auto'
 
-
 alias g='git'
 alias lg='lazygit'
 alias v='nvim'
@@ -69,10 +68,6 @@ function gcmp() {
 # tmux session with cwd
 function tn() {
   tmux new -s `pwd | sed 's/.*\///'`
-}
-
-function nimc() {
-  nim c -r --verbosity:0 "$1"
 }
 
 # beautify man pages

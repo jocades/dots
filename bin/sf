@@ -1,5 +1,0 @@
-#!/bin/bash
-
-session=$(tmux ls | awk -F: '{print $1}' | fzf)
-tmux switch-client -t $session
-exit 0
