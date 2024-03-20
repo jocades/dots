@@ -15,7 +15,7 @@ export PATH=$HOME/.local/bin:$PATH
 # Plugins
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOMEBREW_PREFIX/opt/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # Modern autocomplete
 autoload -Uz compinit
@@ -63,11 +63,6 @@ function gcmp() {
   git add .
   git commit -m "$1"
   git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
-}
-
-# tmux session with cwd
-function tn() {
-  tmux new -s `pwd | sed 's/.*\///'`
 }
 
 # beautify man pages
