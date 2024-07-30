@@ -121,8 +121,4 @@ fi
 eval "$(zoxide init zsh)"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
-# if in tmux set emacs keybindings: set -o emacs
-# if ! [ -z "$TMUX" ]; then
-#   set -o emacs
-# fi
 
