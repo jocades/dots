@@ -7,10 +7,10 @@ indent_style = space
 indent_size = 2
 charset = utf-8
 
-[*.{py,rs,sh,go,cpp,h,java}]
+[*.{py,rs,sh,go,h,java,zig}]
 indent_size = 4
 
-[*.{c,lua,ts,js,tsx,jsx,html,css,json,yml,yaml}]
+[*.{ts,js,lua,tsx,jsx,html,css,scss,json,yml,yaml,zig,exs}]
 indent_size = 2
 
 # languages made by me

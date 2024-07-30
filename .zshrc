@@ -6,11 +6,16 @@ fi
 # Path
 export EDITOR='nvim'
 export VISUAL='nvim'
-export TERM='xterm-256color'
+export TERM='screen-256color'
 export PYENV_ROOT="$HOME/.pyenv"
+
+# emacs mode `set -o emacs` (auto changed by EDITOR and VISUAL)
+bindkey -e
+bindkey '^i' beginning-of-line
 
 # Shell scripts
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/share/nvim/mason/bin:$PATH
 
 # Plugins
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -114,3 +119,10 @@ fi
 
 # zoxide (z replacement)
 eval "$(zoxide init zsh)"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+# if in tmux set emacs keybindings: set -o emacs
+# if ! [ -z "$TMUX" ]; then
+#   set -o emacs
+# fi
+
