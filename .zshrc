@@ -3,12 +3,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Path
-# export EDITOR='nvim'
-# export VISUAL='nvim'
-export TERM='xterm-256color'
+# export TERM='wezterm'
 export PYENV_ROOT="$HOME/.pyenv"
-
+[ -n "$TMUX" ] && export TERM=wezterm
 
 # Shell scripts
 export PATH=$HOME/.local/bin:$PATH
