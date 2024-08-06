@@ -4,14 +4,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path
-export EDITOR='nvim'
-export VISUAL='nvim'
-export TERM='screen-256color'
+# export EDITOR='nvim'
+# export VISUAL='nvim'
+export TERM='xterm-256color'
 export PYENV_ROOT="$HOME/.pyenv"
 
-# emacs mode `set -o emacs` (auto changed by EDITOR and VISUAL)
-bindkey -e
-bindkey '^i' beginning-of-line
 
 # Shell scripts
 export PATH=$HOME/.local/bin:$PATH
@@ -25,6 +22,9 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # Modern autocomplete
 autoload -Uz compinit
 compinit
+
+bindkey -e
+# bindkey '^i' beginning-of-line
 
 # Aliases
 alias cat='bat'
@@ -83,7 +83,6 @@ function man() {
   man "$@"
 }
 
-
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bun completions
@@ -120,5 +119,4 @@ fi
 # zoxide (z replacement)
 eval "$(zoxide init zsh)"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-
 
