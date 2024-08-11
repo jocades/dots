@@ -3,8 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# export TERM='wezterm'
-export PYENV_ROOT="$HOME/.pyenv"
 [ -n "$TMUX" ] && export TERM=wezterm
 
 # Shell scripts
@@ -13,12 +11,16 @@ export PATH=$HOME/.local/share/nvim/mason/bin:$PATH
 
 # Plugins
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
+# just annoying
+export HOMEBREW_AUTO_UPDATE_SECS=604800 # once a week
+
 # Modern autocomplete
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' # case insensitive completion if no match
 
 bindkey -e
 # bindkey '^i' beginning-of-line
@@ -44,8 +46,8 @@ alias nr='npm run'
 alias pnr='pnpm run'
 alias code='code-insiders'
 
-alias shconf='nvim $HOME/.zshrc'
-alias vconf='cd $HOME/.config/nvim; nvim'
+alias shconf='nvim ~/.zshrc'
+alias vconf='cd ~/.config/nvim; nvim'
 
 # Functions
 function glog() {
@@ -67,19 +69,6 @@ function gcmp() {
   git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
 }
 
-# beautify man pages
-function man() {
-  env \
-  LESS_TERMCAP_mb=$'\e[01;31m' \
-  LESS_TERMCAP_md=$'\e[01;31m' \
-  LESS_TERMCAP_me=$'\e[0m' \
-  LESS_TERMCAP_se=$'\e[0m' \
-  LESS_TERMCAP_so=$'\e[01;44;33m' \
-  LESS_TERMCAP_ue=$'\e[0m' \
-  LESS_TERMCAP_us=$'\e[01;32m' \
-  man "$@"
-}
-
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bun completions
@@ -93,6 +82,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
 # pyenv
+export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 export PATH="/opt/homebrew/Cellar/pyenv-virtualenv/1.2.1/shims:${PATH}";
 export PYENV_VIRTUALENV_INIT=1;

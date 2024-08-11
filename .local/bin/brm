@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+MAX_SIZE=300000000 # 300mb
+
+find "$1" -name 'node_modules' -type d -prune -exec du -sh {} \; #| awk '$1 > 300000000 {print $2}'
