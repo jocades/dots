@@ -3,6 +3,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export EDITOR=nvim
 [ -n "$TMUX" ] && export TERM=wezterm
 
 # Shell scripts
@@ -38,7 +39,6 @@ alias g='git'
 alias lg='lazygit'
 alias v='nvim'
 alias vim='nvim'
-alias e='ranger'
 alias py='python3'
 alias pip='pip3'
 alias bpy='bpython'
@@ -67,6 +67,16 @@ function gcmp() {
   git add .
   git commit -m "$1"
   git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+}
+
+# yazi (file explorer)
+function e() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -107,3 +117,7 @@ fi
 eval "$(zoxide init zsh)"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"

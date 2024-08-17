@@ -3,7 +3,7 @@ local wezterm = require('wezterm')
 return {
   color_scheme = 'Catppuccin Mocha',
   font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Bold' }),
-  font_size = 12, -- 18 for recording
+  font_size = 12.5, -- 18 for recording
   cursor_blink_rate = 750,
   audible_bell = 'Disabled',
   enable_tab_bar = false,

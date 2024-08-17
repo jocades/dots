@@ -33,8 +33,8 @@ alt + ctrl - l : yabai -m window --resize right:5:0
 alt + ctrl - space : yabai -m space --balance
 
 # monitor focus
-alt - w : yabai -m display --focus west
-alt - e : yabai -m display --focus east
+alt - w : yabai -m display --focus next
+alt - e : yabai -m display --focus prev
 
 # monitor move and follow
 alt + shift - w : yabai -m window --display west; yabai -m display --focus west
