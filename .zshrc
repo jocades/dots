@@ -6,12 +6,11 @@ fi
 export EDITOR=nvim
 [ -n "$TMUX" ] && export TERM=wezterm
 
-# Shell scripts
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/share/nvim/mason/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH # local scripts, bins..
+export PATH=$HOME/.local/share/nvim/mason/bin:$PATH # language servers, formatters, etc
+export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
 
 # Plugins
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -24,7 +23,6 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' # case insensitive completion if no match
 
 bindkey -e
-# bindkey '^i' beginning-of-line
 
 # Aliases
 alias cat='bat'
@@ -42,8 +40,6 @@ alias vim='nvim'
 alias py='python3'
 alias pip='pip3'
 alias bpy='bpython'
-alias nr='npm run'
-alias pnr='pnpm run'
 alias code='code-insiders'
 
 alias shconf='nvim ~/.zshrc'
@@ -63,11 +59,36 @@ function gcm() {
   git commit -m "$1"
 }
 
-function gcmp() {
+
+function gcz() {
   git add .
-  git commit -m "$1"
+  git cz
+}
+
+
+function gP() {
+  # Too dangerous
+  # git add .
+  # git commit -m "$1"
   git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
 }
+
+function raspi() {
+  TERM=xterm-256color ssh raspi
+}
+
+# fuck https://github.com/nvbn/thefuck
+eval $(thefuck --alias)
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zoxide (z replacement)
+eval "$(zoxide init zsh)"
+
+# atuin
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
 
 # yazi (file explorer)
 function e() {
@@ -78,8 +99,6 @@ function e() {
 	fi
 	rm -f -- "$tmp"
 }
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bun completions
 [ -s "/Users/j0rdi/.bun/_bun" ] && source "/Users/j0rdi/.bun/_bun"
@@ -110,14 +129,4 @@ if [[ -z $precmd_functions[(r)_pyenv_virtualenv_hook] ]]; then
   precmd_functions=(_pyenv_virtualenv_hook $precmd_functions);
 fi
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# zoxide (z replacement)
-eval "$(zoxide init zsh)"
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
