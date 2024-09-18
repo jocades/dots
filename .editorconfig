@@ -13,7 +13,6 @@ indent_size = 4
 [*.{ts,js,lua,tsx,jsx,html,css,scss,json,yml,yaml,zig,exs}]
 indent_size = 2
 
-# languages made by me
 [*.{lox,es}]
 indent_size = 2
 

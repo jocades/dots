@@ -20,34 +20,42 @@ export HOMEBREW_AUTO_UPDATE_SECS=604800 # once a week
 
 # Modern autocomplete
 autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' # case insensitive completion if no match
+zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" # case insensitive completion if no match
 
 bindkey -e
 
 # Aliases
-alias cat='bat'
-alias l='lsd --group-dirs first'
-alias ls='lsd --group-dirs first'
-alias ll='lsd -l --group-dirs first'
-alias la='lsd -a --group-dirs first'
-alias lla='lsd -la --group-dirs first'
-alias grep='rg'
+alias cat="bat"
+alias l="lsd --group-dirs first"
+alias ls="lsd --group-dirs first"
+alias ll="lsd -l --group-dirs first"
+alias la="lsd -a --group-dirs first"
+alias lla="lsd -la --group-dirs first"
+alias grep="rg"
+alias cl="clear"
 
 alias g='git'
-alias lg='lazygit'
-alias v='nvim'
-alias vim='nvim'
-alias py='python3'
-alias pip='pip3'
-alias bpy='bpython'
-alias code='code-insiders'
+alias lg="lazygit"
+alias v="nvim"
+alias vim="nvim"
+alias py="python3"
+alias pip="pip3"
+alias bpy="bpython"
+alias code="code-insiders"
 
-alias shconf='nvim ~/.zshrc'
-alias vconf='cd ~/.config/nvim; nvim'
+alias shconf="nvim ~/.zshrc"
+alias vconf="cd ~/.config/nvim; nvim"
 
-# Functions
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# One shot
 function glog() {
-  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative "$@"
+  git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative "$@"
 }
 
 function gst() {
