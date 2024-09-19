@@ -13,7 +13,6 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
-        # pkgs.skhd
         pkgs.cowsay
       ];
 
@@ -43,7 +42,6 @@
       nixpkgs.hostPlatform = "aarch64-darwin";
 
       system.defaults = {
-          # AppleShowAllExtensions = true;
         finder.AppleShowAllExtensions = true;
         loginwindow.LoginwindowText = "calap";
       };
