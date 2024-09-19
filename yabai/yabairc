@@ -40,3 +40,5 @@ yabai -m rule --add app="^escacs$" manage=on
 # yabai -m rule --add app="^Electron$" manage=off
 # yabai -m rule --add app="^Simulator$" manage=off
 # yabai -m rule --add app="WezTerm" manage=off
+
+echo "yabai config loaded..."
