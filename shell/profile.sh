@@ -1,3 +1,8 @@
+nix-switch() {
+    # impure due to .config paths not being repro
+    darwin-rebuild switch --flake . --impure
+}
+
 raspi() {
     TERM=xterm-256color ssh raspi
 }
@@ -25,6 +30,10 @@ gP() {
     # git add .
     # git commit -m "$1"
     git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+}
+
+nman() {
+    man "$@" | nvim +Man!
 }
 
 # yazi file eplorer (follow cwd)
