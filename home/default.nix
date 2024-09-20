@@ -1,8 +1,8 @@
-{ config, pkgs, ... }: {
+{ _config, pkgs, ... }: {
 
     imports = [ 
-      ./zsh.nix
       ./git.nix
+      ./zsh.nix
       ./yazi.nix
     ];
 
@@ -36,8 +36,9 @@
       ];
 
       file = {
-        ".tmux.conf".source = ~/dotfiles/home/tmux/.tmux.conf;
-        ".config/wezterm".source = ~/dotfiles/home/wezterm;
+        ".tmux.conf".source = ./tmux/.tmux.conf;
+        ".config/wezterm".source = ./wezterm;
+        ".editorconfig".source = ./.editorconfig;
       };
     };
 
@@ -73,6 +74,5 @@
       };
     };
 
-    xdg.enable = true;
     programs.home-manager.enable = true;
 }

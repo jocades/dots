@@ -1,15 +1,16 @@
 { pkgs, ... }: 
 let
- #  yazi-plugins = pkgs.fetchFromGitHub {
-	# 	owner = "yazi-rs";
-	# 	repo = "plugins";
-	# 	rev = "...";
-	# 	hash = "sha256-...";
-	# };
+  yazi-plugins = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "plugins";
+    rev = "b6597919540731691158831bf1ff36ed38c1964e";
+    sha256 = "07dm70s48mas4d38zhnrfw9p3sgk83ki70xi1jb2d191ya7a2p3j";
+	};
 in {
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    shellWrapperName = "e";
     settings = {
       manager = {
         show_hidden = true;
@@ -20,8 +21,8 @@ in {
 			};
     };
     plugins = {
-			# chmod = "${yazi-plugins}/chmod.yazi";
-			# max-preview = "${yazi-plugins}/max-preview.yazi";
+			chmod = "${yazi-plugins}/chmod.yazi";
+			max-preview = "${yazi-plugins}/max-preview.yazi";
 		};
     keymap = {
 			manager.prepend_keymap = [

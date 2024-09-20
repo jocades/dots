@@ -14,15 +14,18 @@
       };
       extraConfig = {
         init.defaultBranch = "main";
+        core.editor = "nvim"; # if set, $GIT_EDITOR will take presedence.
         difftool.prompt = true;
         diff = {
           tool = "nvimdiff";
           guitool = "code";
         };
+
       };
     };
 
     gh.enable = true;
+
     lazygit.enable = true;
   };
 }
