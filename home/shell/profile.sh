@@ -16,6 +16,11 @@ gst() {
 
 glog() {
     git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative "$@"
+    # [alias]
+    # lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+    # lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    # lg = lg1
+    #
 }
 
 gcm() {
@@ -37,6 +42,10 @@ gP() {
 
 nman() {
     man "$@" | nvim +Man!
+}
+
+batdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
 
 # yazi file eplorer (follow cwd)

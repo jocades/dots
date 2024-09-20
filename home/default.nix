@@ -1,6 +1,10 @@
 { config, pkgs, ... }: {
 
-    imports = [ ./zsh.nix ./yazi.nix ];
+    imports = [ 
+      ./zsh.nix
+      ./git.nix
+      ./yazi.nix
+    ];
 
     home = {
       username = "j0rdi";
@@ -10,7 +14,6 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       packages = with pkgs; [
-        # bun
         cargo-binstall
         direnv
         docker-compose
@@ -18,11 +21,9 @@
         fastfetch
         fd
         fzf
-        gh
         go
         hyperfine
         jq
-        lazygit
         lsd
         # python312Packages.bpython
         ripgrep
@@ -46,9 +47,19 @@
       #   enableZshIntegration = true;
       # };
 
+      atuin = {
+        enable = true;
+        enableZshIntegration = true;
+        flags = [ "--disable-up-arrow" ];
+        settings = {
+          style = "compact";
+          keymap_mode = "auto";
+        };
+      };
+
       bat = {
         enable = true;
-        config.theme = "TwoDark";
+        # config.theme = "TwoDark";
       };
 
       fzf = {
@@ -56,13 +67,12 @@
         enableZshIntegration = true;
       };
 
-      git.enable = true;
-
       zoxide = {
         enable = true;
         enableZshIntegration = true;
       };
     };
 
+    xdg.enable = true;
     programs.home-manager.enable = true;
 }
