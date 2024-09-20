@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
 
   programs = {
     git = {
@@ -20,7 +20,6 @@
           tool = "nvimdiff";
           guitool = "code";
         };
-
       };
     };
 

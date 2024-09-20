@@ -1,8 +1,3 @@
-# p10k
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 [ -n "$TMUX" ] && export TERM=wezterm
 
 export EDITOR=nvim
@@ -11,17 +6,13 @@ export PATH=$HOME/.local/share/nvim/mason/bin:$PATH # language servers, formatte
 export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # once a week
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}"
 bindkey -e
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-# bun completions
 [ -s "/Users/j0rdi/.bun/_bun" ] && source "/Users/j0rdi/.bun/_bun"
 
 # pg
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

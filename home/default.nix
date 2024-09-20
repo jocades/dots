@@ -11,8 +11,7 @@
       homeDirectory = "/Users/j0rdi";
       stateVersion = "24.05";
 
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
+      # Search with: $ nix-env -qaP | grep wget
       packages = with pkgs; [
         cargo-binstall
         direnv

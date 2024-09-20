@@ -1,5 +1,5 @@
 :switch() {
-    darwin-rebuild switch --flake ~/dotfiles/.# --impure
+    darwin-rebuild switch --flake ~/dotfiles/.#
 }
 
 :store() {
