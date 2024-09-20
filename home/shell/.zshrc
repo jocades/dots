@@ -11,8 +11,8 @@ export PATH=$HOME/.local/share/nvim/mason/bin:$PATH # language servers, formatte
 export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
 
 # Plugins
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # just annoying
@@ -24,36 +24,16 @@ zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}" # case insensitive 
 
 # Some nice tohaves
 bindkey -e
-source ~/dotfiles/shell/profile.sh
+# source ~/dotfiles/home/shell/profile.sh
 
-# Aliases
-alias cat="bat"
-alias l="lsd --group-dirs first"
-alias ls="lsd --group-dirs first"
-alias ll="lsd -l --group-dirs first"
-alias la="lsd -a --group-dirs first"
-alias lla="lsd -la --group-dirs first"
-alias grep="rg"
-alias cl="clear"
-
-alias g='git'
-alias lg="lazygit"
-alias v="nvim"
-alias vim="nvim"
-alias py="python3"
-alias pip="pip3"
-alias bpy="bpython"
-alias code="code-insiders"
-
-alias shconf="nvim ~/.zshrc"
-alias vconf="cd ~/.config/nvim; nvim"
-
-# dirs
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
+# alias code="code-insiders"
+#
+# # dirs
+# alias ..="cd .."
+# alias ...="cd ../.."
+# alias ....="cd ../../.."
+# alias .....="cd ../../../.."
+# alias ......="cd ../../../../.."
 
 # fuck https://github.com/nvbn/thefuck
 eval $(thefuck --alias)
@@ -78,3 +58,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

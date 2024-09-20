@@ -1,6 +1,9 @@
-nix-switch() {
-    # impure due to .config paths not being repro
-    darwin-rebuild switch --flake . --impure
+:switch() {
+    darwin-rebuild switch --flake ~/dotfiles/.# --impure
+}
+
+:store() {
+    fd "$@" /nix/store
 }
 
 raspi() {

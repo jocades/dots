@@ -1,5 +1,5 @@
 {
-  description = "Jordi's MacBook Pro";
+  description = "Flake for Jordi's MacBook Pro";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -15,38 +15,28 @@
 
   outputs = { self, nixpkgs, darwin, home-manager }@inputs:
   let
-    configuration = { pkgs, ... }: {
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs; [
-        cowsay
-        fastfetch
-      ];
-
-
-    };
+    host = "Jordis-MacBook-Pro";
+    system = "aarch64-darwin";
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Jordis-MacBook-Pro
-    darwinConfigurations."Jordis-MacBook-Pro" = darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
+    darwinConfigurations.${host} = darwin.lib.darwinSystem {
+      inherit system;
       modules = [
-        configuration
         ./darwin
         home-manager.darwinModules.home-manager {
-          home-manager.backupFileExtension = ".bak"; # for some reason this is not working
+          home-manager.backupFileExtension = ".bak";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.j0rdi = import ./darwin/home.nix;
+          home-manager.verbose = true;
+          home-manager.users.j0rdi = import ./home;
         }
       ];
+      specialArgs = { inherit self inputs; };
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."Jordis-MacBook-Pro".pkgs;
+    darwinPackages = self.darwinConfigurations.${host}.pkgs;
   };
 }
