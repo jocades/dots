@@ -21,22 +21,20 @@
       la = "lsd -a --color=auto";
       lla = "lsd -la --color=auto";
       cat="bat";
-      grep = "rg";
       cl = "clear";
+      grep = "rg";
       g = "git";
       lg = "lazygit";
       v = "nvim";
       vim = "nvim";
       py = "python3";
-      pip = "pip3";
       bpy = "bpython";
       code = "code-insiders";
-      .. = "cd ..";
-      # ... = "cd ../..";
+      ".." = "cd ..";
     };
 
     initExtra = ''
-      source ~/dotfiles/home/shell/.zshrc
+      source ~/dotfiles/home/shell/zshrc
       source ~/dotfiles/home/shell/profile.sh
       
       # Ok, if Nix doesn't work, try this:

@@ -33,7 +33,7 @@
           home-manager.users.j0rdi = import ./home;
         }
       ];
-      specialArgs = { inherit self inputs; };
+      specialArgs = { inherit inputs; };
     };
 
     # Expose the package set, including overlays, for convenience.

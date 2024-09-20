@@ -15,6 +15,9 @@
       mouse_drop_action = "swap";
     };
     extraConfig = ''
+      yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+      sudo yabai --load-sa
+
       yabai -m rule --add app="^System Settings$" manage=off
       yabai -m rule --add app="^Finder$" manage=off
       yabai -m rule --add app="^Calculator$" manage=off

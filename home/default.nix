@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-    imports = [ ./zsh.nix ];
+    imports = [ ./zsh.nix ./yazi.nix ];
 
     home = {
       username = "j0rdi";
@@ -10,20 +10,35 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       packages = with pkgs; [
-        cowsay
+        bat
+        cargo-binstall
         direnv
+        docker-compose
+        elixir
         fastfetch
+        fd
+        fzf
+        gh
+        go
+        hyperfine
+        jq
+        lazygit
+        lsd
+        python312Packages.bpython
+        ripgrep
+        stockfish
+        tmux
         tokei
-      # fd
-      # ripgrep
+        tree
+        watchexec
+        wget
+        zoxide
       ];
 
       file = {
-        # ".zshrc".source = ~/dotfiles/home/shell/.zshrc;
         ".tmux.conf".source = ~/dotfiles/home/tmux/.tmux.conf;
         ".config/wezterm".source = ~/dotfiles/home/wezterm;
       };
-
     };
 
     programs.home-manager.enable = true;
