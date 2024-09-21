@@ -1,24 +1,11 @@
-{ ... }: {
-
-  # .zshenv
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    history = {
-      ignoreDups = true;
-      ignoreAllDups = true;
-      ignoreSpace = true;
-    };
-
-    shellAliases = {
-      l = "lsd --color=auto";
-      ls = "lsd --color=auto";
-      ll = "lsd -l --color=auto";
-      la = "lsd -a --color=auto";
-      lla = "lsd -la --color=auto";
+{ lib, ... }: 
+let
+  shellAliases = {
+      l = "lsd --group-dirs first";
+      ls = "lsd --group-dirs first";
+      ll = "lsd -l --group-dirs first";
+      la = "lsd -a --group-dirs first";
+      lla = "lsd -la --group-dirs first";
       cat="bat";
       cl = "clear";
       grep = "rg";
@@ -32,24 +19,37 @@
 
       g = "git";
       lg = "lazygit";
-    };
+  };
+
 
     sessionVariables = {
       EDITOR = "nvim";
       MAN_PAGER = "nvim +Man!";
       # PATH = "~/go/bin:$PATH";
     };
+  
+in 
+  {
+
+  # ~/.zshrc
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    history = {
+      ignoreDups = true;
+      ignoreAllDups = true;
+      ignoreSpace = true;
+    };
+
+    inherit shellAliases;
+    inherit sessionVariables;
 
     initExtra = ''
       source ~/dotfiles/home/shell/zshrc
       source ~/dotfiles/home/shell/profile.sh
-
-      # Ok, if Nix doesn't work, try this:
-      # export PATH="/run/current-system/sw/bin:$PATH"
-      # And enable this
-      # if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-      #   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-      # fi
-      '';
+    '';
   };
 }

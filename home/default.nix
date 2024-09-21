@@ -14,19 +14,18 @@
 
       # Search with: $ nix-env -qaP | grep wget
       packages = with pkgs; [
+        # common
         bat
         cargo-binstall
         direnv
         docker-compose
-        elixir
         fastfetch
         fd
         fzf
-        go
         hyperfine
         jq
         lsd
-        # python312Packages.bpython
+        nixfmt-rfc-style
         ripgrep
         stockfish
         tmux
@@ -34,6 +33,11 @@
         tree
         watchexec
         wget
+
+        # lang
+        elixir
+        go
+        # python312Packages.bpython
       ];
 
       file = {

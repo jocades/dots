@@ -1,6 +1,6 @@
 { lib, ... }: {
 
-  # .config/starship.toml
+  # ~/.config/starship.toml
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
