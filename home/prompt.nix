@@ -1,5 +1,5 @@
-{ lib, ... }: {
-
+{ lib, ... }:
+{
   # ~/.config/starship.toml
   programs.starship = {
     enable = true;

@@ -1,36 +1,33 @@
-{ lib, ... }: 
+{ lib, ... }:
 let
   shellAliases = {
-      l = "lsd --group-dirs first";
-      ls = "lsd --group-dirs first";
-      ll = "lsd -l --group-dirs first";
-      la = "lsd -a --group-dirs first";
-      lla = "lsd -la --group-dirs first";
-      cat="bat";
-      cl = "clear";
-      grep = "rg";
-      find = "fd";
-      v = "nvim";
-      vim = "nvim";
-      py = "python3";
-      bpy = "bpython";
-      code = "code-insiders";
-      ".." = "cd ..";
+    l = "lsd --group-dirs first";
+    ls = "lsd --group-dirs first";
+    ll = "lsd -l --group-dirs first";
+    la = "lsd -a --group-dirs first";
+    lla = "lsd -la --group-dirs first";
+    cat = "bat";
+    cl = "clear";
+    grep = "rg";
+    find = "fd";
+    v = "nvim";
+    vim = "nvim";
+    py = "python3";
+    bpy = "bpython";
+    code = "code-insiders";
+    ".." = "cd ..";
 
-      g = "git";
-      lg = "lazygit";
+    g = "git";
+    lg = "lazygit";
   };
 
-
-    sessionVariables = {
-      EDITOR = "nvim";
-      MAN_PAGER = "nvim +Man!";
-      # PATH = "~/go/bin:$PATH";
-    };
-  
-in 
-  {
-
+  sessionVariables = {
+    EDITOR = "nvim";
+    MAN_PAGER = "nvim +Man!";
+    PATH = "~/go/bin:$PATH";
+  };
+in
+{
   # ~/.zshrc
   programs.zsh = {
     enable = true;

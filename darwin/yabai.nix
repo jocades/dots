@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-
+{ pkgs, ... }:
+{
   services.yabai = {
     enable = true;
     package = pkgs.yabai;
@@ -39,5 +39,5 @@
       yabai -m rule --add label="Software Update" title="Software Update" manage=off
       yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
     '';
-    };
+  };
 }

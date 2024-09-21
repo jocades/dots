@@ -1,5 +1,5 @@
-{ pkgs, lib, inputs, ... }: {
-
+{ inputs, ... }:
+{
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # The platform the configuration will be used on.
@@ -7,7 +7,7 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
   # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true;  # default shell on catalina
+  programs.zsh.enable = true; # default shell on catalina
   # Rread the changelog before changing for backward compat.
   # $ darwin-rebuild changelog
   system.stateVersion = 5;

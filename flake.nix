@@ -13,30 +13,33 @@
     };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager }@inputs:
-  let
-    host = "Jordis-MacBook-Pro";
-    system = "aarch64-darwin";
-  in
-  {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#Jordis-MacBook-Pro
-    darwinConfigurations.${host} = darwin.lib.darwinSystem {
-      inherit system;
-      modules = [
-        ./darwin
-        home-manager.darwinModules.home-manager {
-          home-manager.backupFileExtension = ".bak";
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.verbose = true;
-          home-manager.users.j0rdi = import ./home;
-        }
-      ];
-      specialArgs = { inherit inputs; };
-    };
+  outputs = { self, nixpkgs, darwin, home-manager, }@inputs:
+    let
+      host = "Jordis-MacBook-Pro";
+      system = "aarch64-darwin";
+    in
+    {
+      # Build darwin flake using:
+      # $ darwin-rebuild build --flake .#Jordis-MacBook-Pro
+      darwinConfigurations.${host} = darwin.lib.darwinSystem {
+        inherit system;
+        modules = [
+          ./darwin
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.backupFileExtension = ".bak";
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.verbose = true;
+            home-manager.users.j0rdi = import ./home;
+          }
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
+      };
 
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations.${host}.pkgs;
-  };
+      # Expose the package set, including overlays, for convenience.
+      darwinPackages = self.darwinConfigurations.${host}.pkgs;
+    };
 }
