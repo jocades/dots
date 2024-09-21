@@ -1,4 +1,5 @@
 { ... }: {
+
   # .zshenv
   programs.zsh = {
     enable = true;
@@ -21,20 +22,25 @@
       cat="bat";
       cl = "clear";
       grep = "rg";
-      g = "git";
-      lg = "lazygit";
       v = "nvim";
       vim = "nvim";
       py = "python3";
       bpy = "bpython";
       code = "code-insiders";
       ".." = "cd ..";
+      g = "git";
+      gst = "git status -sb";
+      lg = "lazygit";
+    };
+
+    sessionVariables = {
+      MY_VAR_FROM_ZSH = 123;
     };
 
     initExtra = ''
       source ~/dotfiles/home/shell/zshrc
       source ~/dotfiles/home/shell/profile.sh
-      
+
       # Ok, if Nix doesn't work, try this:
       # export PATH="/run/current-system/sw/bin:$PATH"
       # And enable this

@@ -1,8 +1,9 @@
-{ _config, pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
     imports = [ 
       ./git.nix
-      ./zsh.nix
+      ./prompt.nix
+      ./shell.nix
       ./yazi.nix
     ];
 
@@ -13,6 +14,7 @@
 
       # Search with: $ nix-env -qaP | grep wget
       packages = with pkgs; [
+        bat
         cargo-binstall
         direnv
         docker-compose
@@ -35,18 +37,13 @@
       ];
 
       file = {
-        ".tmux.conf".source = ./tmux/.tmux.conf;
+        ".config/tmux".source = ./tmux;
         ".config/wezterm".source = ./wezterm;
         ".editorconfig".source = ./.editorconfig;
       };
     };
 
     programs = {
-      # starship = {
-      #   enable = true;
-      #   enableZshIntegration = true;
-      # };
-
       atuin = {
         enable = true;
         enableZshIntegration = true;
@@ -55,11 +52,6 @@
           style = "compact";
           keymap_mode = "auto";
         };
-      };
-
-      bat = {
-        enable = true;
-        # config.theme = "TwoDark";
       };
 
       fzf = {
@@ -72,6 +64,4 @@
         enableZshIntegration = true;
       };
     };
-
-    programs.home-manager.enable = true;
 }
