@@ -1,4 +1,4 @@
-{ lib }: {
+{ lib, ... }: {
 
   # .config/starship.toml
   programs.starship = {
@@ -7,8 +7,7 @@
     settings = {
       add_newline = false;
       format = lib.concatStrings [
-        "$username"
-        "$hostname"
+        "$line_break"
         "$directory"
         "$git_branch"
         "$git_state"

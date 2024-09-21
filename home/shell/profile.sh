@@ -1,13 +1,31 @@
-:switch() {
+:q() {
+    tmux kill-pane
+}
+
+:darwin() {
     darwin-rebuild switch --flake ~/dotfiles/.#
 }
 
-:store() {
+:query() {
     fd "$@" /nix/store
+}
+
+:eval() {
+    nix-instantiate --eval "$@"
+}
+
+ide() {
+    tmux split-window -v -l 20%
+    tmux split-window -h -l 50%
+    tmux select-pane -l
 }
 
 raspi() {
     TERM=xterm-256color ssh raspi
+}
+
+path.split() {
+    echo "$PATH" | sed 's/:/\n/g' | sort | uniq -c
 }
 
 gst() {

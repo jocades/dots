@@ -3,7 +3,7 @@
 export EDITOR=nvim
 export PATH=$HOME/.local/bin:$PATH # local scripts, bins..
 export PATH=$HOME/.local/share/nvim/mason/bin:$PATH # language servers, formatters, etc
-export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
+# export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # once a week
 
 zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}"

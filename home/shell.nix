@@ -22,19 +22,22 @@
       cat="bat";
       cl = "clear";
       grep = "rg";
+      find = "fd";
       v = "nvim";
       vim = "nvim";
       py = "python3";
       bpy = "bpython";
       code = "code-insiders";
       ".." = "cd ..";
+
       g = "git";
-      gst = "git status -sb";
       lg = "lazygit";
     };
 
     sessionVariables = {
-      MY_VAR_FROM_ZSH = 123;
+      EDITOR = "nvim";
+      MAN_PAGER = "nvim +Man!";
+      # PATH = "~/go/bin:$PATH";
     };
 
     initExtra = ''
