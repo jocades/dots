@@ -1,6 +1,5 @@
-{ ... }:
+{ ... }: # ~/.config/git
 {
-  # ~/.config/git
   programs = {
     git = {
       enable = true;

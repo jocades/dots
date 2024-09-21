@@ -13,7 +13,12 @@
     };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, }@inputs:
+  outputs =
+    {
+      self,
+      darwin,
+      home-manager,
+    }@inputs:
     let
       host = "Jordis-MacBook-Pro";
       system = "aarch64-darwin";

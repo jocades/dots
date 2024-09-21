@@ -16,3 +16,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pg
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# node version manager
+eval "$(fnm env --use-on-cd --shell zsh)"

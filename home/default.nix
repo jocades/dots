@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -15,29 +15,30 @@
     # Search with: $ nix-env -qaP | grep wget
     packages = with pkgs; [
       # common
-      bat
-      cargo-binstall
-      direnv
+      bat # better cat
+      cargo-binstall # install binaries from crates.io
+      direnv # environment variable manager
       docker-compose
-      fastfetch
-      fd
-      fzf
-      hyperfine
-      jq
-      lsd
-      nixfmt-rfc-style
-      ripgrep
-      stockfish
-      tmux
-      tokei
-      tree
-      watchexec
-      wget
+      fastfetch # better neofetch
+      fd # better find
+      fzf # fuzzy finder
+      hyperfine # benchmarking tool
+      jq # json processor
+      lsd # better ls
+      nixfmt-rfc-style # nix formatter
+      ripgrep # better grep
+      stockfish # chess engine
+      tmux # terminal multiplexer
+      tokei # code statistics
+      tree # directory tree
+      watchexec # watch files (cargo watch)
+      wget # download files
 
       # lang
       elixir
+      fnm # node version manager
       go
-      # python312Packages.bpython
+      rustup # rust toolchain
     ];
 
     file = {
@@ -60,6 +61,11 @@
     };
 
     fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    pyenv = {
       enable = true;
       enableZshIntegration = true;
     };

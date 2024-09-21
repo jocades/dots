@@ -1,34 +1,5 @@
-{ lib, ... }:
-let
-  shellAliases = {
-    l = "lsd --group-dirs first";
-    ls = "lsd --group-dirs first";
-    ll = "lsd -l --group-dirs first";
-    la = "lsd -a --group-dirs first";
-    lla = "lsd -la --group-dirs first";
-    cat = "bat";
-    cl = "clear";
-    grep = "rg";
-    find = "fd";
-    v = "nvim";
-    vim = "nvim";
-    py = "python3";
-    bpy = "bpython";
-    code = "code-insiders";
-    ".." = "cd ..";
-
-    g = "git";
-    lg = "lazygit";
-  };
-
-  sessionVariables = {
-    EDITOR = "nvim";
-    MAN_PAGER = "nvim +Man!";
-    PATH = "~/go/bin:$PATH";
-  };
-in
+{ ... }: # ~/.zshrc
 {
-  # ~/.zshrc
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -41,8 +12,32 @@ in
       ignoreSpace = true;
     };
 
-    inherit shellAliases;
-    inherit sessionVariables;
+    shellAliases = {
+      l = "lsd --group-dirs first";
+      ls = "lsd --group-dirs first";
+      ll = "lsd -l --group-dirs first";
+      la = "lsd -a --group-dirs first";
+      lla = "lsd -la --group-dirs first";
+      cat = "bat";
+      cl = "clear";
+      grep = "rg";
+      find = "fd";
+      v = "nvim";
+      vim = "nvim";
+      py = "python3";
+      bpy = "bpython";
+      code = "code-insiders";
+      ".." = "cd ..";
+
+      g = "git";
+      lg = "lazygit";
+    };
+
+    sessionVariables = {
+      EDITOR = "nvim";
+      MAN_PAGER = "nvim +Man!";
+      # PATH = "~/go/bin:$PATH";
+    };
 
     initExtra = ''
       source ~/dotfiles/home/shell/zshrc
