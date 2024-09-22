@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -14,27 +14,32 @@
 
     # Search with: $ nix-env -qaP | grep wget
     packages = with pkgs; [
-      # common
-      bat
+      # Common
+      bat # better `cat`
+      bottom # better `top`
       cargo-binstall
-      direnv
       docker-compose
+      dogdns # better `dig`
+      du-dust # better `du`
+      duf # better `df`
       fastfetch
-      fd
+      fd # better `find`
       fzf
       hyperfine
       jq
       lsd
       nixfmt-rfc-style
-      ripgrep
+      procs # better `ps`
+      ripgrep # better `grep`
       stockfish
+      tealdeer # better `tldr`
       tmux
-      tokei
+      tokei # count code, quickly
       tree
-      watchexec
+      watchexec # cargo watch
       wget
 
-      # lang
+      # Lang
       elixir
       fnm
       go
@@ -59,6 +64,12 @@
       };
     };
 
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -73,10 +84,5 @@
       enable = true;
       enableZshIntegration = true;
     };
-  };
-
-  programs.home-manager = {
-    enable = true;
-    path = [ "${config.home.homeDirectory}/.local/bin" ];
   };
 }
