@@ -11,12 +11,22 @@ return {
   window_background_opacity = 0.95,
   window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
-
+  -- disable_default_key_bindings = true,
   keys = {
     {
       key = "m",
       mods = "CMD",
       action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+      key = "Enter",
+      mods = "CMD",
+      action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+      key = "r",
+      mods = "CMD|SHIFT",
+      action = wezterm.action.ReloadConfiguration,
     },
   },
 }

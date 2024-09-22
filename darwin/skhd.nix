@@ -20,9 +20,11 @@
       alt + shift - k : yabai -m window --swap north
       alt + shift - l : yabai -m window --swap east
 
-      # move window to workspace and follow 
+      # move window to workspace
       alt + shift - p : yabai -m window --space prev
       alt + shift - n : yabai -m window --space next
+
+      # move window to workspace and follow 
       alt + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1
       alt + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2
       alt + shift - 3 : yabai -m window --space 3; yabai -m space --focus 3
@@ -34,10 +36,10 @@
       alt + shift - 9 : yabai -m window --space 9; yabai -m space --focus 9
 
       # window resize
-      alt + ctrl - h : yabai -m window --resize left:5:0
-      alt + ctrl - j : yabai -m window --resize bottom:0:5
-      alt + ctrl - k : yabai -m window --resize top:0:5
-      alt + ctrl - l : yabai -m window --resize right:5:0
+      alt + ctrl - h : yabai -m window --resize left:10:0
+      alt + ctrl - j : yabai -m window --resize bottom:0:10
+      alt + ctrl - k : yabai -m window --resize top:0:10
+      alt + ctrl - l : yabai -m window --resize right:10:0
 
       # balance window sizes
       alt + ctrl - space : yabai -m space --balance
@@ -52,7 +54,14 @@
 
       # toggle
       alt - m : yabai -m window --toggle zoom-fullscreen
-      alt + shift - space : yabai -m window --toggle float --grid 4:4:1:1:2:2
+      alt + shift - space : yabai -m window --toggle float --resize abs:1920:1080
+
+      # focus terminal
+      alt - return : open -a Wezterm
+
+      # quit/reload services
+      alt + ctrl - q : pkill skhd;\
+                       pkill yabai
     '';
   };
 }

@@ -6,24 +6,24 @@
 
     defaults = {
       NSGlobalDomain = {
-        # Dark mode
         AppleInterfaceStyle = "Dark";
-
-        # Automatically hide and show the menu bar
         _HIHideMenuBar = true;
+
+        # Disable press-and-hold for keys in favor of key repeat
+        ApplePressAndHoldEnabled = false;
+
+        # Set a blazingly fast key repeat rate
+        InitialKeyRepeat = 15;
+        KeyRepeat = 1;
       };
 
       dock = {
-        # Automatically hide and show the Dock
         autohide = true;
-
-        # Style options
         orientation = "bottom";
-        show-recents = true;
+        show-recents = false;
       };
 
-      loginwindow.LoginwindowText = "calap";
-
+      # try to make finder actually usable?
       finder = {
         AppleShowAllExtensions = true;
         _FXShowPosixPathInTitle = true;

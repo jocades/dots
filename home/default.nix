@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -15,36 +15,35 @@
     # Search with: $ nix-env -qaP | grep wget
     packages = with pkgs; [
       # common
-      bat # better cat
-      cargo-binstall # install binaries from crates.io
-      direnv # environment variable manager
+      bat
+      cargo-binstall
+      direnv
       docker-compose
-      fastfetch # better neofetch
-      fd # better find
-      fzf # fuzzy finder
-      hyperfine # benchmarking tool
-      jq # json processor
-      lsd # better ls
-      nixfmt-rfc-style # nix formatter
-      ripgrep # better grep
-      stockfish # chess engine
-      tmux # terminal multiplexer
-      tokei # code statistics
-      tree # directory tree
-      watchexec # watch files (cargo watch)
-      wget # download files
+      fastfetch
+      fd
+      fzf
+      hyperfine
+      jq
+      lsd
+      nixfmt-rfc-style
+      ripgrep
+      stockfish
+      tmux
+      tokei
+      tree
+      watchexec
+      wget
 
       # lang
       elixir
-      fnm # node version manager
+      fnm
       go
-      rustup # rust toolchain
+      rustup
     ];
 
     file = {
-      # ".config/tmux".source = ./tmux;
       ".tmux.conf".source = ./tmux/tmux.conf;
-      ".config/wezterm".source = ./wezterm;
+      ".wezterm.lua".source = ./wezterm/wezterm.lua;
       ".editorconfig".source = ./.editorconfig;
     };
   };
@@ -74,5 +73,10 @@
       enable = true;
       enableZshIntegration = true;
     };
+  };
+
+  programs.home-manager = {
+    enable = true;
+    path = [ "${config.home.homeDirectory}/.local/bin" ];
   };
 }

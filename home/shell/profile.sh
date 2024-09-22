@@ -3,7 +3,7 @@
 }
 
 :darwin() {
-    darwin-rebuild switch --flake ~/dotfiles/.#
+    darwin-rebuild switch --flake ~/dotfiles
 }
 
 :query() {

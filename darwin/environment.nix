@@ -7,7 +7,6 @@
     ];
     loginShell = pkgs.zsh;
     systemPackages = [ pkgs.coreutils ];
-    # systemPath = [ "/usr/local/bin" ];
     pathsToLink = [ "/Applications" ];
   };
 }
