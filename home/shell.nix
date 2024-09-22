@@ -39,24 +39,25 @@
       HOMEBREW_AUTO_UPDATE_SECS = 604800; # once a week
     };
 
-    initExtra = ''
-      [ -n "$TMUX" ] && export TERM=wezterm
+    initExtra = # sh
+      ''
+        [ -n "$TMUX" ] && export TERM=wezterm
 
-      export PATH=~/.local/bin:$PATH # local scripts, bins..
-      export PATH=~/.local/share/nvim/mason/bin:$PATH # language servers, formatters, etc
-      export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
+        export PATH=~/.local/bin:$PATH # local scripts, bins..
+        export PATH=~/.local/share/nvim/mason/bin:$PATH # language servers, formatters, etc
+        export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
 
-      bindkey -e
-      zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}"
+        bindkey -e
+        zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}"
 
-      source ~/dotfiles/home/shell/profile.sh
-      source ~/dotfiles/home/shell/plugins/sudo.sh
+        source ~/dotfiles/home/shell/profile.sh
+        source ~/dotfiles/home/shell/plugins/sudo.sh
 
-      eval "$(fnm env --use-on-cd --shell zsh)" # node version manager
+        eval "$(fnm env --use-on-cd --shell zsh)" # node version manager
 
-      export BUN_INSTALL="$HOME/.bun"
-      export PATH="$BUN_INSTALL/bin:$PATH"
-      [ -s "/Users/j0rdi/.bun/_bun" ] && source "/Users/j0rdi/.bun/_bun" # bun completions
-    '';
+        export BUN_INSTALL="$HOME/.bun"
+        export PATH="$BUN_INSTALL/bin:$PATH"
+        [ -s "/Users/j0rdi/.bun/_bun" ] && source "/Users/j0rdi/.bun/_bun" # bun completions
+      '';
   };
 }

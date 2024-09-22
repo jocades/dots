@@ -15,6 +15,15 @@
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   users.users.j0rdi.home = "/Users/j0rdi";
 
+  # Store management
+  nix = {
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
+    optimise.automatic = true;
+  };
+
   imports = [
     ./system.nix
     ./environment.nix

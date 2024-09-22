@@ -23,7 +23,7 @@
         show-recents = false;
       };
 
-      # try to make finder actually usable?
+      # try to make finder usable
       finder = {
         AppleShowAllExtensions = true;
         _FXShowPosixPathInTitle = true;
