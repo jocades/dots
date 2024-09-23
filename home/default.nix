@@ -1,10 +1,15 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     ./git.nix
     ./prompt.nix
-    ./shell.nix
     ./yazi.nix
+    ./zsh.nix
   ];
 
   home = {
@@ -48,8 +53,8 @@
 
     file = {
       ".tmux.conf".source = ./tmux/tmux.conf;
-      ".wezterm.lua".source = ./wezterm/wezterm.lua;
       ".editorconfig".source = ./.editorconfig;
+      ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink ./wezterm;
     };
   };
 
@@ -67,7 +72,7 @@
     direnv = {
       enable = true;
       enableZshIntegration = true;
-      nix-direnv.enable = true;
+      # nix-direnv.enable = true;
     };
 
     fzf = {

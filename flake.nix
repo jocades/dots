@@ -33,11 +33,13 @@
           ./darwin
           home-manager.darwinModules.home-manager
           {
-            home-manager.backupFileExtension = "bak";
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.verbose = true;
-            home-manager.users.j0rdi = import ./home;
+            home-manager = {
+              backupFileExtension = "bak";
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              verbose = true;
+              users.j0rdi = import ./home;
+            };
           }
         ];
         specialArgs = {

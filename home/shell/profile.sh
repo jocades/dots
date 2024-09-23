@@ -14,6 +14,10 @@
     nix-instantiate --eval "$@"
 }
 
+:evalj() {
+    nix-instantiate --eval --strict --json "$@"
+}
+
 ide() {
     tmux split-window -v -l 20%
     tmux split-window -h -l 50%
@@ -26,10 +30,6 @@ raspi() {
 
 path.split() {
     echo "$PATH" | sed 's/:/\n/g' | sort | uniq -c
-}
-
-gst() {
-    git status -sb
 }
 
 glog() {

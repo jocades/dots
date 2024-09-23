@@ -28,8 +28,11 @@
       bpy = "bpython";
       code = "code-insiders";
       ".." = "cd ..";
+      "--" = "cd -";
 
       g = "git";
+      gs = "git status -sb";
+      ga = "git add";
       lg = "lazygit";
     };
 
