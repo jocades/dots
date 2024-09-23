@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -54,7 +49,7 @@
     file = {
       ".tmux.conf".source = ./tmux/tmux.conf;
       ".editorconfig".source = ./.editorconfig;
-      ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink ./wezterm;
+      # ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink ./wezterm;
     };
   };
 

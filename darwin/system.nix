@@ -1,9 +1,6 @@
 { ... }:
 {
   system = {
-    keyboard.enableKeyMapping = true;
-    keyboard.remapCapsLockToEscape = true;
-
     defaults = {
       NSGlobalDomain = {
         AppleInterfaceStyle = "Dark";
@@ -23,11 +20,22 @@
         show-recents = false;
       };
 
-      # try to make finder usable
+      # Try to make finder usable
       finder = {
         AppleShowAllExtensions = true;
         _FXShowPosixPathInTitle = true;
       };
+    };
+
+    # $ darwin-rebuild changelog (dont change; backwards compat)
+    stateVersion = 5;
+
+    # Turn off NIX_PATH warnings now that we're using flakes
+    checks.verifyNixPath = false;
+
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;
     };
   };
 

@@ -11,6 +11,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # inputs.fh.url = "https://flakehub.com/f/DeterminateSystems/fh/*.tar.gz";
   };
 
   outputs =
@@ -19,10 +20,14 @@
       nixpkgs,
       darwin,
       home-manager,
+      # fh,
+      ...
     }@inputs:
     let
       host = "Jordis-MacBook-Pro";
       system = "aarch64-darwin";
+      rev = self.rev or self.dirtyRev or null;
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       # Build darwin flake using:
@@ -42,12 +47,27 @@
             };
           }
         ];
+        # specialArgs = inputs // {
+        #   inherit rev;
+        # };
+
         specialArgs = {
-          inherit inputs;
+          inherit rev;
+          inherit system;
+          # inherit fh;
         };
+
       };
 
       # Expose the package set, including overlays, for convenience.
       darwinPackages = self.darwinConfigurations.${host}.pkgs;
+
+      # Why not?
+      devShells.${system}.default = pkgs.mkShell {
+        packages = with pkgs; [ nvim ];
+        shellHook = ''
+          export EDITOR=nvim
+        '';
+      };
     };
 }

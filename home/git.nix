@@ -8,6 +8,7 @@
       ignores = [ ".DS_Store" ];
       extraConfig = {
         init.defaultBranch = "main";
+        push.default = "current";
         core.editor = "nvim";
         difftool.prompt = true;
         diff = {
