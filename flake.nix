@@ -30,8 +30,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#Jordis-MacBook-Pro
       darwinConfigurations.${host} = darwin.lib.darwinSystem {
         inherit system;
         modules = [
@@ -64,7 +62,7 @@
 
       # Why not?
       devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [ nvim ];
+        packages = with pkgs; [ neovim ];
         shellHook = ''
           export EDITOR=nvim
         '';
