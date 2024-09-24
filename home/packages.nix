@@ -1,4 +1,4 @@
-{ pkgs, lib }:
+{ pkgs }:
 
 let
   script = pkgs.writeShellScriptBin "ide" ''

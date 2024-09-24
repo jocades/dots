@@ -13,8 +13,8 @@ in
 
 {
   home.file = {
-    ".tmux.conf".source = mkMutSymLink ./tmux/tmux.conf;
-    ".config/wezterm".source = mkMutSymLink ./wezterm;
-    ".editorconfig".source = ./.editorconfig;
+    ".tmux.conf".source = mkMutSymLink ../tmux/tmux.conf;
+    ".config/wezterm".source = mkMutSymLink ../wezterm;
+    ".editorconfig".source = ../.editorconfig;
   };
 }

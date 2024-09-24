@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 return {
   color_scheme = "Catppuccin Mocha",
@@ -17,17 +18,17 @@ return {
     {
       key = "m",
       mods = "CMD",
-      action = wezterm.action.DisableDefaultAssignment,
+      action = act.DisableDefaultAssignment,
     },
     {
       key = "Enter",
       mods = "CMD",
-      action = wezterm.action.DisableDefaultAssignment,
+      action = act.DisableDefaultAssignment,
     },
     {
       key = "r",
       mods = "CMD|SHIFT",
-      action = wezterm.action.ReloadConfiguration,
+      action = act.ReloadConfiguration,
     },
   },
 }

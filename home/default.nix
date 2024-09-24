@@ -1,13 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./git.nix
-    ./prompt.nix
-    ./yazi.nix
-    ./zsh.nix
-    ./files.nix
-  ];
-
   home = {
     username = "j0rdi";
     homeDirectory = "/Users/j0rdi";
@@ -16,4 +8,6 @@
   };
 
   programs = import ./programs.nix { };
+
+  imports = [ ./modules ];
 }
