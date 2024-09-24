@@ -1,4 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, lib }:
+
+let
+  script = pkgs.writeShellScriptBin "ide" ''
+    tmux split-window -v -l 20%
+    tmux split-window -h -l 50%
+    tmux select-pane -l
+  '';
+in
 
 with pkgs;
 [
@@ -32,4 +40,6 @@ with pkgs;
   fnm
   go
   rustup
+
+  script
 ]

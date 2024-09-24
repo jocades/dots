@@ -18,10 +18,8 @@
     nix-instantiate --eval --strict --json "$@"
 }
 
-ide() {
-    tmux split-window -v -l 20%
-    tmux split-window -h -l 50%
-    tmux select-pane -l
+:iflake() {
+    nix repl --expr "builtins.getFlake \"$PWD\""
 }
 
 raspi() {

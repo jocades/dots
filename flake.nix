@@ -28,6 +28,12 @@
       system = "aarch64-darwin";
       rev = self.rev or self.dirtyRev or null;
       pkgs = nixpkgs.legacyPackages.${system};
+      args = {
+        inherit rev;
+        inherit system;
+        inherit self;
+        # inherit self;
+      };
     in
     {
       darwinConfigurations.${host} = darwin.lib.darwinSystem {
@@ -42,6 +48,7 @@
               useUserPackages = true;
               verbose = true;
               users.j0rdi = import ./home;
+              extraSpecialArgs = args;
             };
           }
         ];
@@ -49,11 +56,7 @@
         #   inherit rev;
         # };
 
-        specialArgs = {
-          inherit rev;
-          inherit system;
-          # inherit fh;
-        };
+        specialArgs = args;
 
       };
 
