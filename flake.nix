@@ -11,7 +11,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # inputs.fh.url = "https://flakehub.com/f/DeterminateSystems/fh/*.tar.gz";
   };
 
   outputs =
@@ -20,19 +19,15 @@
       nixpkgs,
       darwin,
       home-manager,
-      # fh,
       ...
-    }@inputs:
+    }:
     let
       host = "Jordis-MacBook-Pro";
       system = "aarch64-darwin";
-      rev = self.rev or self.dirtyRev or null;
       pkgs = nixpkgs.legacyPackages.${system};
       args = {
-        inherit rev;
         inherit system;
         inherit self;
-        # inherit self;
       };
     in
     {
@@ -52,10 +47,6 @@
             };
           }
         ];
-        # specialArgs = inputs // {
-        #   inherit rev;
-        # };
-
         specialArgs = args;
 
       };

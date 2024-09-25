@@ -56,8 +56,9 @@
       alt - m : yabai -m window --toggle zoom-fullscreen
       alt + shift - space : yabai -m window --toggle float --resize abs:1920:1080
 
-      # focus terminal
+      # apps
       alt - return : open -a Wezterm
+      alt - n : open /Applications/Obsidian.app
 
       # quit/reload services
       alt + ctrl - q : pkill skhd;\

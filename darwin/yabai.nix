@@ -36,9 +36,9 @@
         yabai -m rule --add app="^App Store$" manage=off
         yabai -m rule --add app="^Messages$" manage=off
         yabai -m rule --add app="^escacs$" manage=on
-        yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
         yabai -m rule --add label="Software Update" title="Software Update" manage=off
         yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+        yabai -m rule --add app="Obsidian" manage=off
       '';
   };
 }
