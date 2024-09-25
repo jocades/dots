@@ -1,12 +1,18 @@
 { lib, ... }: # ~/.config/starship.toml
+
+let
+  readTOML = path: builtins.fromTOML (builtins.readFile path);
+  nerdIcons = readTOML ../shell/prompts/nerd.toml;
+in
+
 {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    settings = {
-      add_newline = false;
+    settings = nerdIcons // {
+      add_newline = true;
+      palette = "catppuccin_mocha";
       format = lib.concatStrings [
-        "$line_break"
         "$directory"
         "$git_branch"
         "$git_state"
@@ -14,13 +20,7 @@
         "$jobs"
         "$cmd_duration"
         "$fill"
-        "$lua"
-        "$python"
-        "$nodejs"
-        "$golang"
-        "$rust"
-        "$package"
-        "$docker_context"
+        "$all"
         "$line_break"
         "$character"
       ];
@@ -47,6 +47,12 @@
       cmd_duration = {
         format = "[$duration]($style) ";
         style = "yellow";
+      };
+      jobs = {
+        symbol = " ";
+        style = "red";
+        number_threshold = 1;
+        format = "[$symbol]($style)";
       };
     };
   };
