@@ -37,6 +37,8 @@
       gd = "git diff";
       gs = "git status -sb";
       lg = "lazygit";
+
+      cargow = "cargo watch -qcx";
     };
 
     sessionVariables = {

@@ -2,6 +2,7 @@
     tmux kill-pane
 }
 
+# Nix
 :darwin() {
     darwin-rebuild switch --flake ~/dotfiles
 }
@@ -22,14 +23,17 @@
     nix repl --expr "builtins.getFlake \"$PWD\""
 }
 
+# Rust
+cargot() {
+    cargo test -qcx "$@" -- --nocapture
+}
+
+# Raspberry Pi
 raspi() {
     TERM=xterm-256color ssh raspi
 }
 
-path.split() {
-    echo "$PATH" | sed 's/:/\n/g' | sort | uniq -c
-}
-
+# Git
 glog() {
     git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative "$@"
 }
@@ -41,8 +45,13 @@ gP() {
     git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
 }
 
+# Misc
 nman() {
     man "$@" | nvim +Man!
+}
+
+path.split() {
+    echo "$PATH" | sed 's/:/\n/g' | sort | uniq -c
 }
 
 batdiff() {
