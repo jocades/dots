@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   atuin = {
     enable = true;
     enableZshIntegration = true;

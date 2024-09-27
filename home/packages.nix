@@ -38,6 +38,7 @@ with pkgs;
   lsd
   nixfmt-rfc-style
   procs # better `ps`
+  qemu # machine emulator and virtualizer
   ripgrep # better `grep`
   stockfish
   tealdeer # better `tldr`
