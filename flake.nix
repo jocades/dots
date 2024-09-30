@@ -19,7 +19,6 @@
       nixpkgs,
       darwin,
       home-manager,
-      ...
     }:
     let
       host = "Jordis-MacBook-Pro";
@@ -51,10 +50,8 @@
 
       };
 
-      # Expose the package set, including overlays, for convenience.
       darwinPackages = self.darwinConfigurations.${host}.pkgs;
 
-      # Why not?
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [ neovim ];
         shellHook = ''
