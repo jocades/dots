@@ -50,9 +50,10 @@ with pkgs;
 
   # Lang
   elixir
-  fnm
+  fnm # node version manager
   go
-  rustup
+  poetry # python packaging
+  rustup # rust toolchain
 
   # Misc
   ide
