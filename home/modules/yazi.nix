@@ -14,6 +14,7 @@ in
     shellWrapperName = "e";
     settings = {
       manager = {
+        linemode = "size";
         show_hidden = true;
       };
       preview = {

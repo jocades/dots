@@ -52,7 +52,7 @@ with pkgs;
   elixir
   fnm # node version manager
   go
-  poetry # python packaging
+  uv # python packaging
   rustup # rust toolchain
 
   # Misc
