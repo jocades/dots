@@ -47,6 +47,7 @@ with pkgs;
   tree
   watchexec # cargo watch
   wget
+  zlib # data compression
 
   # Lang
   elixir
