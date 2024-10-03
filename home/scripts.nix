@@ -1,13 +1,13 @@
-{ pkgs }:
+{ writeShellScriptBin, pkgs }:
 
 let
-  ide = pkgs.writeShellScriptBin "ide" ''
+  ide = writeShellScriptBin "ide" ''
     tmux split-window -v -l 20%
     tmux split-window -h -l 50%
     tmux select-pane -l
   '';
 
-  popgit = pkgs.writeShellScriptBin "popgit" ''
+  popgit = writeShellScriptBin "popgit" ''
     tmux popup \
         -E \
         -d "#{pane_current_path}" \
@@ -20,10 +20,10 @@ let
   '';
 
   gshow =
-    pkgs.writeShellScriptBin "gshow" # py
+    pkgs.writers.writePython3Bin "gshow" { } # py
       ''
-        #!/usr/bin/env python3
-        import sys, zlib 
+        import sys
+        import zlib
         print(zlib.decompress(open(sys.argv[1], 'rb').read()))
       '';
 in

@@ -34,10 +34,5 @@ with pkgs;
   go
   uv # python packaging
   rustup # rust toolchain
-
-  # Misc
-  ide
-  popgit
-  gshow
 ]
-++ pkgs.callPackage import ./scripts.nix { }
+++ pkgs.callPackage ./scripts.nix { }
