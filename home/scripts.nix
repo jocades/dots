@@ -1,4 +1,4 @@
-{ writeShellScriptBin, pkgs }:
+{ writeShellScriptBin, writers }:
 
 let
   ide = writeShellScriptBin "ide" ''
@@ -20,7 +20,7 @@ let
   '';
 
   gshow =
-    pkgs.writers.writePython3Bin "gshow" { } # py
+    writers.writePython3Bin "gshow" { } # py
       ''
         import sys
         import zlib
