@@ -1,4 +1,6 @@
 _: {
+  man.enable = false;
+
   atuin = {
     enable = true;
     enableZshIntegration = true;

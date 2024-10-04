@@ -4,6 +4,7 @@
   ...
 }:
 {
+  documentation.man.enable = false;
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # Create /etc/zshrc that loads the nix-darwin environment.
