@@ -53,6 +53,7 @@
 
         export PATH=~/.local/bin:$PATH # local scripts, bins..
         export PATH=~/.local/share/nvim/mason/bin:$PATH # language servers, formatters, etc
+        export PATH=~/.cargo/bin:$PATH # rust binaries `cargo install <pkg>`
         export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
 
         bindkey -e

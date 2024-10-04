@@ -47,7 +47,7 @@ gP() {
 
 # Misc
 nman() {
-    man "$@" | nvim +Man!
+    "$@" | nvim +Man!
 }
 
 path.split() {
