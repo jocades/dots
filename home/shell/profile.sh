@@ -54,6 +54,11 @@ path.split() {
     echo "$PATH" | sed 's/:/\n/g' | sort | uniq -c
 }
 
+path.push() {
+    _path=$(realpath "$1")
+    export PATH=$PATH:$_path
+}
+
 batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
