@@ -25,7 +25,7 @@
 
 # Rust
 cargot() {
-    cargo test -qcx "$@" -- --nocapture
+    cargo test -q "$@" -- --nocapture
 }
 
 # Raspberry Pi

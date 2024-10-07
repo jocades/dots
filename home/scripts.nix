@@ -1,4 +1,4 @@
-{ writeShellScriptBin, writers }:
+{ writeShellScriptBin, pkgs }:
 
 let
   ide = writeShellScriptBin "ide" ''
@@ -19,17 +19,11 @@ let
         lazygit
   '';
 
-  gshow =
-    writers.writePython3Bin "gshow" { } # py
-      ''
-        import sys
-        import zlib
-        print(zlib.decompress(open(sys.argv[1], 'rb').read()))
-      '';
+  zlib = pkgs.writers.writePython3Bin "zlib" { } (builtins.readFile ./bin/zlib_util.py);
 in
 
 [
   ide
   popgit
-  gshow
+  zlib
 ]
