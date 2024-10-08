@@ -1,6 +1,8 @@
-{ writeShellScriptBin, pkgs }:
+{ writeShellScriptBin, writers }:
 
 let
+  switch = writeShellScriptBin ":switch" (builtins.readFile ./bin/switch.sh);
+
   ide = writeShellScriptBin "ide" ''
     tmux split-window -v -l 20%
     tmux split-window -h -l 50%
@@ -19,10 +21,11 @@ let
         lazygit
   '';
 
-  zlib = pkgs.writers.writePython3Bin "zlib" { } (builtins.readFile ./bin/zlib_util.py);
+  zlib = writers.writePython3Bin "zlib" { } (builtins.readFile ./bin/zlib_util.py);
 in
 
 [
+  switch
   ide
   popgit
   zlib
