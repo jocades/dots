@@ -3,12 +3,12 @@
   system = {
     defaults = {
       NSGlobalDomain = {
+        AppleICUForce24HourTime = true;
         AppleInterfaceStyle = "Dark";
         _HIHideMenuBar = true;
 
         # Disable press-and-hold for keys in favor of key repeat
         ApplePressAndHoldEnabled = false;
-
         # Set a blazingly fast key repeat rate
         InitialKeyRepeat = 15;
         KeyRepeat = 1;
@@ -20,10 +20,13 @@
         show-recents = false;
       };
 
+      loginwindow.GuestEnabled = false;
+
       # Try to make finder usable
       finder = {
         AppleShowAllExtensions = true;
         _FXShowPosixPathInTitle = true;
+        FXPreferredViewStyle = "clmv";
       };
     };
 
