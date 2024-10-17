@@ -7,13 +7,16 @@ return {
   font_size = 12.5, -- 18 for recording
   cursor_blink_rate = 750,
   audible_bell = "Disabled",
+
   enable_tab_bar = false,
+  use_fancy_tab_bar = false,
+
   window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
+
   -- macos_window_background_blur = 30,
   -- window_background_opacity = 0.95,
-  -- disable_default_key_bindings = true,
-  -- default_prog = { "zsh", "-l", "-c", "tmux", "a" },
+
   keys = {
     {
       key = "m",
