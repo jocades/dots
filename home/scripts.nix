@@ -9,6 +9,20 @@ let
     tmux select-pane -l
   '';
 
+  popup =
+    { name, run }:
+    writeShellScriptBin name ''
+      tmux popup \
+          -E \
+          -d "#{pane_current_path}" \
+          -w "80%" \
+          -h "80%" \
+          -b rounded \
+          -S fg="blue" \
+          -T "LazyGit" \
+          ${run}
+    '';
+
   popgit = writeShellScriptBin "popgit" ''
     tmux popup \
         -E \
@@ -21,6 +35,11 @@ let
         lazygit
   '';
 
+  monitor = popup {
+    name = "monitor";
+    run = "btm";
+  };
+
   zlib = writers.writePython3Bin "zlib" { } (builtins.readFile ./bin/zlib_util.py);
 in
 
@@ -29,4 +48,5 @@ in
   ide
   popgit
   zlib
+  monitor
 ]
