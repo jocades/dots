@@ -23,17 +23,10 @@ let
           ${run}
     '';
 
-  popgit = writeShellScriptBin "popgit" ''
-    tmux popup \
-        -E \
-        -d "#{pane_current_path}" \
-        -w "80%" \
-        -h "80%" \
-        -b rounded \
-        -S fg="blue" \
-        -T "LazyGit" \
-        lazygit
-  '';
+  popgit = popup {
+    name = "popgit";
+    run = "lazygit";
+  };
 
   monitor = popup {
     name = "monitor";
@@ -44,9 +37,9 @@ let
 in
 
 [
-  switch
   ide
-  popgit
-  zlib
   monitor
+  popgit
+  switch
+  zlib
 ]
