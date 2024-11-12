@@ -29,6 +29,8 @@
       code = "code-insiders";
       ".." = "cd ..";
       "--" = "cd -";
+      d = "docker";
+      dco = "docker compose";
 
       g = "git";
       ga = "git add";
