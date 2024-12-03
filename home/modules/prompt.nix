@@ -46,7 +46,7 @@ in
       };
       cmd_duration = {
         format = "[$duration]($style) ";
-        style = "yellow";
+        style = "gray";
       };
       jobs = {
         symbol = " ";

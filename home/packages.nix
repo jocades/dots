@@ -13,6 +13,7 @@ with pkgs;
   fastfetch
   fd # better `find`
   fzf
+  hexyl
   hyperfine
   jq
   lsd
