@@ -38,15 +38,6 @@ glog() {
     git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative "$@"
 }
 
-# Comp
-cppc() {
-    _args="$*"
-    if [[ $_args =~ "-o " ]]; then
-        echo "hello"
-    fi
-    # clang++ -std=c++20 -O2 -Wall "$@"
-}
-
 gP() {
     # Too dangerous
     # git add .
