@@ -31,6 +31,7 @@
       "--" = "cd -";
       d = "docker";
       dco = "docker compose";
+      cppc = "clang++ -std=c++20 -02 -Wall";
 
       g = "git";
       ga = "git add";
