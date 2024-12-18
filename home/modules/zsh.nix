@@ -31,7 +31,6 @@
       "--" = "cd -";
       d = "docker";
       dco = "docker compose";
-      cppc = "clang++ -std=c++20 -O2 -Wall";
 
       g = "git";
       ga = "git add";
@@ -42,6 +41,7 @@
       lg = "lazygit";
 
       cargow = "cargo watch -qcx";
+      cppc = "clang++ -std=c++20 -O2 -Wall";
     };
 
     sessionVariables = {

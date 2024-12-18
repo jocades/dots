@@ -50,6 +50,10 @@ nman() {
     "$@" | nvim +Man!
 }
 
+mkcd() {
+    mkdir -p "$1" && cd "$1" || exit
+}
+
 path.split() {
     echo "$PATH" | sed 's/:/\n/g' | sort | uniq -c
 }
@@ -61,4 +65,9 @@ path.push() {
 
 batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
+
+cppcw() {
+    watchexec -e cpp -r "clang++ -std=c++20 -O2 -Wall $*"
+
 }
