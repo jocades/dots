@@ -40,8 +40,7 @@
       lg = "lazygit";
 
       cargow = "cargo watch -qcx";
-      llvm = "/opt/homebrew/opt/llvm/bin";
-      cppc = "/opt/homebrew/opt/llvm/bin/clang++ -std=c++20 -O2 -Wall";
+      cppc = "clang++ -std=c++20 -O2 -Wall";
     };
 
     sessionVariables = {
