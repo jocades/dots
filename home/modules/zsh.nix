@@ -35,7 +35,6 @@
       g = "git";
       ga = "git add";
       gcm = "git commit -m";
-      gcz = "git cz";
       gd = "git diff";
       gs = "git status -sb";
       lg = "lazygit";

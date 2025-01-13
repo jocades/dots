@@ -10,7 +10,11 @@ let
   '';
 
   popup =
-    { name, run }:
+    {
+      name,
+      title,
+      exec,
+    }:
     writeShellScriptBin name ''
       tmux popup \
           -E \
@@ -19,18 +23,20 @@ let
           -h "80%" \
           -b rounded \
           -S fg="blue" \
-          -T "LazyGit" \
-          ${run}
+          -T ${title} \
+          ${exec}
     '';
 
   popgit = popup {
     name = "popgit";
-    run = "lazygit";
+    title = "LazyGit";
+    exec = "lazygit";
   };
 
   monitor = popup {
     name = "monitor";
-    run = "btm";
+    title = "Bottom";
+    exec = "btm";
   };
 
   zlib = writers.writePython3Bin "zlib" { } (builtins.readFile ./bin/zlib_util.py);
