@@ -1,2 +1,5 @@
 -I
 /usr/local/include/
+/opt/homebrew/opt/llvm/include/
+-L
+/opt/homebrew/opt/llvm/lib/

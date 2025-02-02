@@ -8,4 +8,7 @@ AlignAfterOpenBracket: BlockIndent
 AllowShortBlocksOnASingleLine: Empty
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+BinPackParameters: false
+BinPackArguments: false
 ColumnLimit: 100
