@@ -5,7 +5,6 @@
       bash
       zsh
     ];
-    loginShell = pkgs.zsh;
     systemPackages = [ pkgs.coreutils ];
     pathsToLink = [ "/Applications" ];
   };

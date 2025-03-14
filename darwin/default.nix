@@ -5,8 +5,6 @@
 }:
 {
   documentation.man.enable = false;
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
   # Set Git commit hash for darwin-version.
@@ -20,7 +18,6 @@
 
     # Store management
     gc = {
-      user = "root";
       automatic = true;
       options = "--delete-older-than 15d";
     };
