@@ -57,6 +57,7 @@
         export PATH=~/.local/share/nvim/mason/bin:$PATH # language servers, formatters, etc
         export PATH=~/.cargo/bin:$PATH # rust binaries `cargo install <pkg>`
         export PATH=~/go/bin:$PATH # go binaries `go install <pkg>`
+        export PATH=/opt/homebrew/opt/llvm/bin:$PATH
 
         bindkey -e
         zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}"
