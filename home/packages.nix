@@ -33,6 +33,7 @@ with pkgs;
   elixir
   fnm # node version manager
   go
+  opam # ocaml
   uv # python packaging
   rustup # rust toolchain
 ]
