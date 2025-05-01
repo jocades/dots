@@ -66,6 +66,7 @@
         source ~/dotfiles/home/shell/plugins/sudo.sh
 
         eval "$(fnm env --use-on-cd --shell zsh)" # node version manager
+        eval $(opam env --switch=default) # ocaml dune manager
 
         export BUN_INSTALL="$HOME/.bun"
         export PATH="$BUN_INSTALL/bin:$PATH"
