@@ -7,6 +7,7 @@ PointerAlignment: Left
 AlignAfterOpenBracket: BlockIndent
 AllowShortBlocksOnASingleLine: Empty
 AllowShortFunctionsOnASingleLine: Empty
+AllowShortEnumsOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowAllArgumentsOnNextLine: false
@@ -17,3 +18,4 @@ BinPackArguments: false
 ColumnLimit: 100
 IndentWidth: 2
 ContinuationIndentWidth: 2
+# IndentPPDirectives: BeforeHash

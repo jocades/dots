@@ -13,6 +13,7 @@ return {
 
   window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
+  max_fps = 144,
 
   -- macos_window_background_blur = 30,
   -- window_background_opacity = 0.95,

@@ -47,7 +47,6 @@
           }
         ];
         specialArgs = args;
-
       };
 
       darwinPackages = self.darwinConfigurations.${host}.pkgs;
