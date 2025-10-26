@@ -20,8 +20,6 @@
       lla = "lsd -la --group-dirs first";
       cat = "bat";
       cl = "clear";
-      grep = "rg";
-      find = "fd";
       v = "nvim";
       vim = "nvim";
       py = "python3";

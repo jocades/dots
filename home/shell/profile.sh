@@ -68,5 +68,9 @@ batdiff() {
 }
 
 cppcw() {
-    watchexec -e cpp -r "clang++ -std=c++20 -O2 -Wall $*"
+    watchexec -e cpp -r "clang++ -std=c++20 -Wall -Wextra $*"
+}
+
+ccw() {
+    watchexec -e c -r "clang -std=c99 -Wall -Wextra $*"
 }
