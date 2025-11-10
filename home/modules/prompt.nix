@@ -20,7 +20,7 @@ in
         "$jobs"
         "$cmd_duration"
         "$fill"
-        "$all"
+        # "$all"
         "$line_break"
         "$character"
       ];
