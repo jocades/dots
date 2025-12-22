@@ -21,6 +21,7 @@ with pkgs;
   procs # better `ps`
   qemu # machine emulator and virtualizer
   ripgrep # better `grep`
+  rlwrap # readline wrapper
   stockfish
   tealdeer # better `tldr`
   tmux
