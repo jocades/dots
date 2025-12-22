@@ -47,7 +47,7 @@
       HOMEBREW_AUTO_UPDATE_SECS = 604800; # once a week
     };
 
-    initExtra = # sh
+    initContent = # sh
       ''
         [ -n "$TMUX" ] && export TERM=wezterm
 

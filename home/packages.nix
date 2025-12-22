@@ -8,7 +8,7 @@ with pkgs;
   cargo-binstall
   docker-compose
   dogdns # better `dig`
-  du-dust # better `du`
+  dust # better `du`
   duf # better `df`
   fastfetch
   fd # better `find`

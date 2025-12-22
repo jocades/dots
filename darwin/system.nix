@@ -1,6 +1,8 @@
 { ... }:
 {
   system = {
+    primaryUser = "j0rdi";
+
     defaults = {
       NSGlobalDomain = {
         AppleICUForce24HourTime = true;

@@ -3,10 +3,12 @@
   programs = {
     git = {
       enable = true;
-      userName = "Jordi Calafat";
-      userEmail = "jcalafat97@gmail.com";
       ignores = [ ".DS_Store" ];
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Jordi Calafat";
+          email = "jcalafat97@gmail.com";
+        };
         init.defaultBranch = "main";
         push.default = "current";
         core.editor = "nvim";
