@@ -1,9 +1,34 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local function font(name)
+  if name == "Monaspace" then
+    return wezterm.font({
+      -- family = "Monaspace Neon NF",
+      -- weight = "Bold",
+      family = "Monaspace Neon NF SemiBold",
+      harfbuzz_features = {
+        "calt",
+        "ss01",
+        "ss02",
+        "ss03",
+        "ss04",
+        "ss05",
+        "ss06",
+        "ss07",
+        "ss08",
+        "ss09",
+        "ss10",
+        "liga",
+      },
+    })
+  end
+  return wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
+end
+
 return {
   color_scheme = "Catppuccin Mocha",
-  font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" }),
+  font = font("Monaspace"),
   font_size = 12, -- 18 for recording
   cursor_blink_rate = 750,
   audible_bell = "Disabled",
