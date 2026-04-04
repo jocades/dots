@@ -17,7 +17,7 @@ git diff -U0 "*.nix"
 
 echo "Rebuilding darwin system..."
 
-darwin-rebuild switch --flake "$dots" &>"$logf" || (
+sudo darwin-rebuild switch --flake "$dots" &>"$logf" || (
     rg error "$logf"
     exit 1
 )
