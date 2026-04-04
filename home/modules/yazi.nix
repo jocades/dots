@@ -27,7 +27,7 @@ in
       max-preview = "${yazi-plugins}/max-preview.yazi";
     };
     keymap = {
-      manager.prepend_keymap = [
+      mgr.prepend_keymap = [
         {
           on = [
             "c"
